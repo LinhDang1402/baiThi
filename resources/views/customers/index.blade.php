@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
+@extends('layout.index')
+@section('content')
 	<h1>Danh sách khách hàng</h1>
 	<form action="">
 	<input type="text" value="{{ $search }}" name="search">	<button>Tìm kiếm</button>
 	</form>
 	<a href="{{ route('customers.create')}}">Thêm khách hàng</a>
-	<table border="1" cellspacing="0" cellpadding="1">
+	<div class="col-md-12">
+              <div class="card">
+	<div class="card-header card-header-primary">
+                  <h4 class="card-title ">Thông tin khách hàng</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+	<table border="1" cellspacing="0" cellpadding="1" class="table">
 		<tr>
 			<th>Mã</th>
 			<th>Ảnh</th>
@@ -31,8 +32,16 @@
 			</tr>
 		@endforeach
 	</table>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
 	{{ $listCustomer->appends([
         'search' => $search,
     ])->links('pagination::bootstrap-4') }}
-</body>
-</html>
+@endsection
+
+	
+

@@ -14,7 +14,8 @@ class CustomerController extends Controller
     public function index(Request $request)
     {   
         $search = $request->get('search');
-        $listCustomer = Customer::where('name', 'like', "%$search%" )->paginate(5);
+        $listCustomer = Customer::where('name', 'like', "%$search%" OR 'numberPhone', 'like', "%$search%") 
+        ->paginate(5);
         return view('customers.index',[
             'listCustomer' => $listCustomer,
             'search' => $search,
