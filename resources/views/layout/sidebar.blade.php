@@ -8,7 +8,7 @@
       <ul class="nav">
         <li class="nav-item active  ">
           <a class="nav-link" href="{{ route('customers.index') }}">
-            <i class="material-icons">dashboard</i>
+            <i class="material-icons"></i>
             <p>Danh sách khách hàng</p>
           </a>
         </li>
